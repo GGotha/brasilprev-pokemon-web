@@ -2,7 +2,12 @@ import { CircularProgress } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ButtonPokemonType from "components/ButtonPokemonType";
 import React, { Fragment } from "react";
-import { PokemonDetailsProps } from "./PokemonDetails";
+import {
+  Attack,
+  PokemonDetailsProps,
+  Resistance,
+  Weakness,
+} from "./PokemonDetails";
 import styles from "./PokemonDetails.styles";
 
 const PokemonDetails: React.FC<PokemonDetailsProps> = ({
@@ -46,9 +51,34 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({
                   </h3>
                 </div>
                 <div className={classes.titleAndValueStats}>
+                  <h3 className={classes.titleStats}>Habilidades</h3>
+                  {pokemon.attacks ? (
+                    pokemon?.attacks?.map((attack: Attack) => (
+                      <Fragment>
+                        <div className={classes.contentAttacks}>
+                          <h3 className={classes.valueStats}>{attack.name}</h3>
+                          <div>
+                            <h1 className={classes.valueStats}>
+                              Energia: {attack.convertedEnergyCost}
+                            </h1>
+                            <h1 className={classes.valueStats}>
+                              Dano: {attack.damage}
+                            </h1>
+                            <h1 className={classes.valueStats}>
+                              Descrição: {attack.text}
+                            </h1>
+                          </div>
+                        </div>
+                      </Fragment>
+                    ))
+                  ) : (
+                    <h3 className={classes.valueStats}>Sem habilidades</h3>
+                  )}
+                </div>
+                <div className={classes.titleAndValueStats}>
                   <h3 className={classes.titleStats}>Tipo</h3>
                   {pokemon.types ? (
-                    pokemon?.types?.map((type: any) => (
+                    pokemon?.types?.map((type: string) => (
                       <ButtonPokemonType type={type} />
                     ))
                   ) : (
@@ -57,12 +87,22 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({
                 </div>
                 <div className={classes.titleAndValueStats}>
                   <h3 className={classes.titleStats}>Fraqueza</h3>
-                  {pokemon.types ? (
-                    pokemon?.weaknesses?.map((type: any) => (
-                      <ButtonPokemonType type={type.type} />
+                  {pokemon.weaknesses ? (
+                    pokemon?.weaknesses?.map((weakness: Weakness) => (
+                      <ButtonPokemonType type={weakness.type} />
                     ))
                   ) : (
                     <h3 className={classes.valueStats}>Sem Fraqueza</h3>
+                  )}
+                </div>
+                <div className={classes.titleAndValueStats}>
+                  <h3 className={classes.titleStats}>Resistência</h3>
+                  {pokemon.resistances ? (
+                    pokemon?.resistances?.map((resistance: Resistance) => (
+                      <ButtonPokemonType type={resistance.type} />
+                    ))
+                  ) : (
+                    <h3 className={classes.valueStats}>Sem resistência</h3>
                   )}
                 </div>
               </div>

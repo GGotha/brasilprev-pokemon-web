@@ -14,4 +14,21 @@ export interface Pokemon {
   };
   types: [];
   weaknesses: [];
+  resistances: [];
+  attacks: [];
+}
+
+export interface Attack {
+  name: string;
+  convertedEnergyCost: string;
+  damage: string;
+  text: string;
+}
+
+export interface Weakness {
+  type: string;
+}
+
+export interface Resistance {
+  type: string;
 }

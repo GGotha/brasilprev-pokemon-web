@@ -43,8 +43,9 @@ const styles = createStyles({
     "@media(max-width: 599px) and (min-width: 0px)": {
       marginTop: "30px",
       width: "100%",
+      height: "30%",
     },
-    height: "400px",
+    height: "700px",
   },
   titleStats: {
     color: "white",
@@ -62,6 +63,13 @@ const styles = createStyles({
     height: "400px",
     "@media(max-width: 599px) and (min-width: 0px)": {
       marginTop: "40%",
+    },
+  },
+  contentAttacks: {
+    marginTop: "10px",
+    "& div": {
+      marginLeft: "30px",
+      marginTop: "10px",
     },
   },
 });

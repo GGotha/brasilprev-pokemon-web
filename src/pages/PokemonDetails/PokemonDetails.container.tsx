@@ -15,6 +15,8 @@ const PokemonDetailsContainer: React.FC = () => {
     supertype: "",
     types: [],
     weaknesses: [],
+    resistances: [],
+    attacks: [],
   });
 
   const getPokemonByPokemonId = useCallback(async (pokemonId) => {
