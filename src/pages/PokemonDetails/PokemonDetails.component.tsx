@@ -53,8 +53,8 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({
                 <div className={classes.titleAndValueStats}>
                   <h3 className={classes.titleStats}>Habilidades</h3>
                   {pokemon.attacks ? (
-                    pokemon?.attacks?.map((attack: Attack) => (
-                      <Fragment>
+                    pokemon?.attacks?.map((attack: Attack, index: number) => (
+                      <Fragment key={index}>
                         <div className={classes.contentAttacks}>
                           <h3 className={classes.valueStats}>{attack.name}</h3>
                           <div>
@@ -78,8 +78,8 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({
                 <div className={classes.titleAndValueStats}>
                   <h3 className={classes.titleStats}>Tipo</h3>
                   {pokemon.types ? (
-                    pokemon?.types?.map((type: string) => (
-                      <ButtonPokemonType type={type} />
+                    pokemon?.types?.map((type: string, index: number) => (
+                      <ButtonPokemonType key={index} type={type} />
                     ))
                   ) : (
                     <h3 className={classes.valueStats}>Sem Tipo</h3>
@@ -88,9 +88,11 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({
                 <div className={classes.titleAndValueStats}>
                   <h3 className={classes.titleStats}>Fraqueza</h3>
                   {pokemon.weaknesses ? (
-                    pokemon?.weaknesses?.map((weakness: Weakness) => (
-                      <ButtonPokemonType type={weakness.type} />
-                    ))
+                    pokemon?.weaknesses?.map(
+                      (weakness: Weakness, index: number) => (
+                        <ButtonPokemonType key={index} type={weakness.type} />
+                      )
+                    )
                   ) : (
                     <h3 className={classes.valueStats}>Sem Fraqueza</h3>
                   )}
@@ -98,9 +100,11 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({
                 <div className={classes.titleAndValueStats}>
                   <h3 className={classes.titleStats}>Resistência</h3>
                   {pokemon.resistances ? (
-                    pokemon?.resistances?.map((resistance: Resistance) => (
-                      <ButtonPokemonType type={resistance.type} />
-                    ))
+                    pokemon?.resistances?.map(
+                      (resistance: Resistance, index: number) => (
+                        <ButtonPokemonType key={index} type={resistance.type} />
+                      )
+                    )
                   ) : (
                     <h3 className={classes.valueStats}>Sem resistência</h3>
                   )}

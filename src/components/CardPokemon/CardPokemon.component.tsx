@@ -38,14 +38,18 @@ const CardPokemon: React.FC<CardPokemonProps> = ({
       <div className={classes.gridContainer}>
         {cards.map((card: Card) => (
           <div key={card.id} className={classes.gridItem}>
-            <a onClick={() => history.push(`/pokemon-details/${card.id}`)}>
-              <img className={classes.pokeCard} src={card.images.large} />
-            </a>
+            <button onClick={() => history.push(`/pokemon-details/${card.id}`)}>
+              <img
+                className={classes.pokeCard}
+                src={card.images.large}
+                alt={card.id}
+              />
+            </button>
           </div>
         ))}
       </div>
     );
-  }, [isFetching, cards]);
+  }, [isFetching, cards, classes, history]);
 
   return (
     <div className={classes.divAlignItemsToCenter}>

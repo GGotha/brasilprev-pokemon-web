@@ -29,18 +29,15 @@ const CardPokemonContainer: React.FC = () => {
     setIsFetching(false);
 
     setCards(response.data.data);
-  }, [inputValue]);
+  }, [inputValue, getPokemonCards]);
 
   useEffect(() => {
     getPokemonCards();
-  }, []);
+  }, [getPokemonCards]);
 
-  const onChangeInputValue = useCallback(
-    (e) => {
-      setInputValue(e.target.value);
-    },
-    [inputValue]
-  );
+  const onChangeInputValue = useCallback((e) => {
+    setInputValue(e.target.value);
+  }, []);
 
   const whenPressEnterSearchPokemonByInputValue = useCallback(
     (e) => {
@@ -48,7 +45,7 @@ const CardPokemonContainer: React.FC = () => {
         searchPokemonByName();
       }
     },
-    [inputValue]
+    [searchPokemonByName]
   );
 
   return (

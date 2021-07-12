@@ -24,8 +24,6 @@ const PokemonDetailsContainer: React.FC = () => {
 
     const response = await api.get(`/cards/${pokemonId}`);
 
-    console.log(response);
-
     setIsFetching(false);
 
     setPokemon(response.data.data);
@@ -35,7 +33,7 @@ const PokemonDetailsContainer: React.FC = () => {
     const pokemonId = location.pathname.split("/pokemon-details/")[1];
 
     getPokemonByPokemonId(pokemonId);
-  }, []);
+  }, [getPokemonByPokemonId, location.pathname]);
 
   return <PokemonDetailsComponent isFetching={isFetching} pokemon={pokemon} />;
 };
