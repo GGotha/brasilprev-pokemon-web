@@ -13,3 +13,9 @@ BrasilPrev Pokemon API
 - The application should have navigation with routes ✔️
 - The list of cards should be ordered by name ✔️
 - The application should have search by pokemon name ✔️
+
+## First Steps
+
+    git clone https://github.com/GGotha/brasilprev-pokemon-api.git
+    yarn install
+    yarn start
