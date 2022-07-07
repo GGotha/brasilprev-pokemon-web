@@ -7,7 +7,7 @@
 </p>
 <hr>
 
-BrasilPrev Pokemon API
+BrasilPrev Pokemon WEB
 
 - The application should be responsive (mobile-first) ✔️
 - The application should have navigation with routes ✔️
@@ -16,6 +16,6 @@ BrasilPrev Pokemon API
 
 ## First Steps
 
-    git clone https://github.com/GGotha/brasilprev-pokemon-api.git
+    git clone https://github.com/GGotha/brasilprev-pokemon-web.git
     yarn install
     yarn start
